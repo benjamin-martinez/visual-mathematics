@@ -29,7 +29,7 @@
 
       <router-link to="/">
         <v-btn target="_blank" text >
-            <span class="mr-2">Home</span>
+            <span class="mr-2">About</span>
         </v-btn>
       </router-link>
 
