@@ -2,60 +2,44 @@
  <div class="page">
 
     <h2>Visual Arithmetic</h2>
-   <v-text-field type="number" label="Number of terms to be calculated" v-model="numTerms" v-on:keydown="updateTermsArray"></v-text-field>
+   
+   Please enter 2 operands as well as the operation to be performed on them.
+           <br><br>
+            <div class="arithmetic-input">
+                <v-text-field type="number" outlined label="Operand 1" v-model="operand1"></v-text-field>
 
-   You've selected: {{ numTerms }} <br><br>
+                <v-btn-toggle color="blue" mandatory v-model="operator">
+                    <v-btn>+</v-btn>
+                    <v-btn>-</v-btn>
+                    <v-btn>×</v-btn> <!-- Alt-code 0215 -->
+                    <v-btn>÷</v-btn> <!-- Alt-code 0247 -->
+                </v-btn-toggle>
+                <br><br>
+                <v-text-field type="number" outlined label="Operand 2" v-model="operand2"></v-text-field>
+            </div> <!--  -->
+            
+            <br>
+            <v-btn :click="visualizationBegun = true">Begin Visualization</v-btn>
 
-    
-        <div v-if="parseInt(numTerms) > 0">
-        Terms:<br>
-            <div v-for="term in parseInt(numTerms)" >
-                <v-text-field  type="number" v-model="terms[term]" ></v-text-field>
-            </div>
-        </div>
+            {{ operand1 }}
+            {{ operand2 }}    
+            {{ operator }}
+            {{ visualizationBegun }}
+            <div v-if="visualizationBegun" class="visualization-board">
+                <div class="operand1-display">
+                    <div v-for="n in operand1" class="operand1-unit">
 
-
-        <br>
-        <v-btn @click="submit()">Submit</v-btn>
-        <br>
-
-        <!-- <p >length: {{terms.length}}</p> -->
-
-        <div class="math-board">
-
-        </div>
-        
-
-        </br>
-        <!-- {{terms}} -->
-
-
-        <div v-if="boardInitiated" class="demonstration">
-            <div v-for="term in terms" :key="term" class="term">
-                <div :class="term" >
-                    {{ term }}
-                    <div v-if="term && parseInt(term) <= 10 ">
-                        <div v-for="n in parseInt(term)" :key="n" class="one-circle">
-                            
-                        </div>
                     </div>
-                    <div v-if-else="term && parseInt(term) > 10 ">
-                        <div v-for="n in parseInt(term)" :key="n" class="one-circle-g10">
-                            
-                        </div>
+                </div>
+2
+                <div class="operand2-display">
+                    <div v-for="n in operand2" class="operand2-unit">
+
                     </div>
-                </div> 
+                </div>
+
             </div>
-        </div>
-        size = {{ numTerms }} <br>
-        terms = {{ terms }} <br>
-        0th term = {{ terms[0] }} <br>
-        1st term = {{ terms[1] }}
-
-
-        <br>
-        <v-btn @click="beginCalculating()">Calculate</v-btn>
-        <br>
+            3
  </div>
 </template>
 
@@ -64,36 +48,27 @@
         name: 'Addition',
         data: function () {
             return {
-                numTerms: null,
-                terms: new Array(),
-                displayedTerms: new Array(),
-                boardInitiated: false
+                operand1: null,
+                operand2: null,
+                operator: null,
+                visualizationBegun: false
             }
         },
         methods: {
 
             submit() {
 
-                if(!this.terms[0])     
-                    this.displayedTerms = this.terms.slice[1]
-                else {
-                   this.terms.length = this.numTerms
-                   this.displayedTerms.length = this.numTerms
-                   }
-
-                if (this.numTerms && this.terms.length > 0 && !this.boardInitiated)
-                    this.toggleBoard();
+               
 
             },
 
             toggleBoard() {
-                    this.boardInitiated = !this.boardInitiated;
-                
+                if (this.visualizationBegun == false)
+                    this.visualizationBegun = true
             },
 
             updateTermsArray() {
-                if ( parseInt(this.numTerms) < this.terms.length )
-                    this.terms.length = parseInt(this.numTerms)
+               
             },
 
             beginCalculating() {
@@ -101,16 +76,7 @@
             },
 
             calculateAddition() {
-                for (x in this.terms)
-                {
-                    let total = 0
-
-                    if (terms[x])
-                        total = total + terms[x]
-
-                }
-
-                // return total
+                
             }
 
             //Animation methods
@@ -134,7 +100,7 @@
 }
 
 
-.one-circle {
+.operand1-unit {
     margin: 20px;
     padding: 2px;
     background: #f90;
@@ -143,10 +109,10 @@
     border-radius: 50%;
 }
 
-.one-circle-g10 {
+.operand2-unit {
     margin: 20px;
     padding: 2px;
-    background: #f90;
+    background: #6a2;
     width: 10px;
     height: 10px;
     border-radius: 50%;

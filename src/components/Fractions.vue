@@ -11,17 +11,21 @@
                 <v-text-field type="number" outlined label="Denominator 1"></v-text-field>
             </div> <!-- fraction-1 -->
 
-            <div class="fraction-input">
-                <v-text-field type="number" outlined label="Numerator 2"></v-text-field>
-                <v-text-field type="number" outlined label="Denominator 2"></v-text-field>
-            </div> <!-- fraction-2 -->
-
             <v-btn-toggle color="blue" mandatory>
                 <v-btn>+</v-btn>
                 <v-btn>-</v-btn>
                 <v-btn>×</v-btn>
                 <v-btn>÷</v-btn>  
             </v-btn-toggle>
+            
+            <br> <br>
+
+            <div class="fraction-input">
+                <v-text-field type="number" outlined label="Numerator 2"></v-text-field>
+                <v-text-field type="number" outlined label="Denominator 2"></v-text-field>
+            </div> <!-- fraction-2 -->
+
+            
             <br>
             <br>
             <v-btn>Begin Visualization :)</v-btn>
