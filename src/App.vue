@@ -2,19 +2,20 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="black"
       dark
     >
+      <router-link to="/">
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="assets/vis-math-logo-cropped.png"
           transition="scale-transition"
           width="40"
         />
-
+        
         <v-img
           alt="Vuetify Name"
           class="shrink mt-1 hidden-sm-and-down"
@@ -24,10 +25,11 @@
           width="100"
         />
       </div>
+      </router-link>
 
       <v-spacer></v-spacer>
 
-      <router-link to="/">
+      <router-link to="/about">
         <v-btn target="_blank" text >
             <span class="mr-2">About</span>
         </v-btn>
@@ -43,14 +45,12 @@
     </v-app-bar>
 
     <v-content>
-      <!-- <HelloWorld/> -->
       <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
 
 export default {
   name: 'App',
@@ -63,3 +63,10 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+.mr-2 a {
+            color: white;
+            text-decoration: none;
+        }
+</style>

@@ -19,33 +19,32 @@
             </div> <!--  -->
             
             <br>
-            <v-btn :click="visualizationBegun = true">Begin Visualization</v-btn>
+            <v-btn v-on:click="visualizationBegun = true">Begin Visualization</v-btn>
 
             {{ operand1 }}
             {{ operand2 }}    
             {{ operator }}
             {{ visualizationBegun }}
             <div v-if="visualizationBegun" class="visualization-board">
-                <div class="operand1-display">
-                    <div v-for="n in operand1" class="operand1-unit">
+                <div v-for="n in operand1" class="operand1-display" :key="n">
+                    <div  class="operand1-unit">
 
                     </div>
                 </div>
-2
+
                 <div class="operand2-display">
-                    <div v-for="n in operand2" class="operand2-unit">
+                    <div v-for="n in operand2" :key="n.id" class="operand2-unit">
 
                     </div>
                 </div>
 
             </div>
-            3
  </div>
 </template>
 
 <script>
     export default {
-        name: 'Addition',
+        name: 'Arithmetic',
         data: function () {
             return {
                 operand1: null,

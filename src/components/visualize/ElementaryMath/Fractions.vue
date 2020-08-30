@@ -36,7 +36,9 @@
 </template>
 
 <script>
-
+export default {
+    name: 'Fractions'
+}
 </script>
 
 <style lang="scss">

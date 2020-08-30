@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import About from '../views/About.vue'
 
 Vue.use(VueRouter)
 
@@ -11,29 +12,30 @@ Vue.use(VueRouter)
     component: Home
   },
   {
+    path: '/about',
+    name: 'About',
+    component: About
+  },
+  {
     path: '/visual-mathematics',
     name: 'VisualMath',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: function () {
-      return import('../components/VisualMath.vue')
+      return import('../components/visualize/VisualMath.vue')
     },
     children: [
       {
-        // UserProfile will be rendered inside User's <router-view>
-        // when /user/:id/profile is matched
         path: 'arithmetic',
         component: function () {
-          return import('../components/Arithmetic.vue')
+          return import('../components/visualize/ElementaryMath/Arithmetic.vue')
         }
       },
       {
-        // UserProfile will be rendered inside User's <router-view>
-        // when /user/:id/profile is matched
         path: 'fractions',
         component: function () {
-          return import('../components/Fractions.vue')
+          return import('../components/visualize/ElementaryMath/Fractions.vue')
         }
       }
     ]
