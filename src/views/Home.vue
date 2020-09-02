@@ -6,7 +6,6 @@
 
     <br><br>
 
-    <b>Project 2</b>
   </div>
 </template>
 

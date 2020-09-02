@@ -5,15 +5,13 @@
         v-bind:css="false"
         mode="out-in"
     >
-        <div class="animation-wrapper">
-            <div v-for="x in 50" :key="x.id">
-                <div v-for="y in 50" :key="y.id">
-                    <div v-if="x==25 && y==25" class="single-box origin"></div>
-                    <div v-else-if="x==25" class="single-box y-axis"></div>
-                    <div v-else-if="y==25" class="single-box x-axis"></div>
-                    <div v-else class="single-box"></div>
-                </div>
-            </div>
+        <div @click="enterElement" >
+            <div class="single-box"></div>
+            <br><br><br>
+            <div class="single-box"></div>
+            <br><br><br>
+            <div class="single-box"></div>
+
         </div>
     </transition>
 </template>
@@ -24,16 +22,28 @@ import anime from 'animejs/lib/anime.es.js';
 export default {
     name: 'HomeAnimation',
     data: {
-        
+        showFirst: true
     },
     methods: {
     enterElement(el, done) {
       console.log(el)
       anime({
         targets: ".single-box",
-        translateX: [400, 0],
-        opacity: [0, 1],
-        easing: 'easeInOutSine',
+        translateX: 800,
+        direction: 'alternate',
+        borderRadius: ['0%', '50%'],
+        rotate: {
+            value: 720,
+            duration: 1800,
+            easing: 'easeInOutSine'
+        },
+        scale: {
+            value: 2,
+            duration: 1600,
+            delay: 800,
+            easing: 'easeInOutQuart'
+        },
+        duration: 6000,
         complete: done,
       })
     }
@@ -44,26 +54,12 @@ export default {
 <style>
 .animation-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-items: center;
 }
 
 .single-box {
     background: black;
-    height: 10px;
-    width: 10px;
+    height: 50px;
+    width: 50px;
 }
-
-.y-axis {
-    background: red;
-}
-
-.x-axis {
-    background: red;
-}
-
-.origin {
-    background: yellow;
-}
-
 </style>
