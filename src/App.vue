@@ -4,31 +4,49 @@
       app
       color="white"
       dark
-      extended
     >
           <router-link to="/">
-          <div class="d-flex align-center mt-12">
+          <div class="d-flex align-center">
+              <v-img
+                alt="Vuetify Logo"
+                class="shrink mr-2"
+                contain
+                src="./components/svg/vmEmblem.svg"
+                transition="scale-transition"
+                width="50"
+              />
+
+              <v-img
+                alt="Vuetify Name"
+                class="shrink mt-1 hidden-sm-and-down"
+                contain
+                min-width="100"
+                src="./components/svg/vmText.svg"
+                width="200"
+              />
+          </div>
+          <!-- <div class="d-flex align-center mt-12">
             <v-img 
               src="./components/svg/vmEmblem.svg"
               class="vm-emblem"/>
             <v-img 
               src="./components/svg/vmText.svg"
               class="vm-text"/>
-          </div>
+          </div> --> 
           </router-link>
 
           <v-spacer></v-spacer>
 
           <router-link to="/about">
-            <v-btn target="_blank" text >
+            <v-btn class="nav-link" color="primary" target="_blank" text >
                 <span class="mr-2">About</span>
             </v-btn>
           </router-link>
 
-          <router-link to="/visual-mathematics">
-            <v-btn target="_blank" text >
+          <router-link to="/visual-mathematics" >
+            <v-btn class="nav-link" color="primary" target="_blank" text >
                 <v-icon color="blue">mdi-calculator-variant</v-icon>
-                <span class="mr-2">Visual Mathematics</span>
+                <span class="mr-2">Visualize Now!</span>
             </v-btn>
           </router-link>
     </v-app-bar>
@@ -54,10 +72,9 @@ export default {
 </script>
 
 <style scoped>
-.mr-2 {
-            color: #448aff;
-            text-decoration: none;
-        }
+a {
+    text-decoration: none;
+}
 
 .vm-emblem {
   width: 10%

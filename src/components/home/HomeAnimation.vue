@@ -5,7 +5,7 @@
         v-bind:css="false"
         mode="out-in"
     >
-        <div @click="enterElement" >
+        <div @click="enterElement" class="animation-wrapper">
             <div class="single-box"></div>
             <br><br><br>
             <div class="single-box"></div>
@@ -29,7 +29,7 @@ export default {
       console.log(el)
       anime({
         targets: ".single-box",
-        translateX: 800,
+        translateX: 100,
         direction: 'alternate',
         borderRadius: ['0%', '50%'],
         rotate: {

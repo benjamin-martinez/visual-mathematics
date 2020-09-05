@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>WTF?</h1>
 
     This inspiration behind this project came as a result of constantly being told over and over again that math is hard. 
     To me, "math is hard" breaks down into 2 things. Math can be boring, and math can be difficult to abstract. Maybe it's 
@@ -24,6 +24,7 @@ export default {
 </script>
 
 <style>
-.cls-1{fill:#4c7ec0;}
-.cls-2{fill:#231f20;}
+.about {
+    padding: 10% 20% 10% 20%;
+  }
 </style>
